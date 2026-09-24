@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1014">
+<title>D’Lanang Command Center</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+:root{--bg:#0d1014;--sidebar:#12161b;--surface:#171d24;--surface2:#1d252e;--line:rgba(255,255,255,.09);--text:#f7f8fa;--muted:#94a0ad;--orange:#f47a20;--orange2:#ffad6b;--green:#32c47d;--red:#f35d67;--yellow:#e8b83e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% -15%,#3a2412 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 0,#38220f 0,transparent 45%),var(--bg)}.login-card{width:min(430px,100%);background:rgba(23,29,36,.96);border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:0 25px 80px #0008}.brand{display:flex;align-items:center;gap:12px}.brand-logo{width:46px;height:46px;display:grid;place-items:center;overflow:hidden;border-radius:15px;background:linear-gradient(135deg,#ff9c45,#ca4e09);box-shadow:0 12px 25px #f47a2033}.brand-logo img{width:100%;height:100%;object-fit:contain;padding:4px}.brand b{display:block;letter-spacing:.03em}.muted{color:var(--muted)}
+.sidebar{position:fixed;inset:0 auto 0 0;width:250px;z-index:40;background:rgba(18,22,27,.96);border-right:1px solid var(--line);padding:22px 13px;backdrop-filter:blur(18px);display:flex;flex-direction:column}.section-label{font-size:10px;font-weight:800;letter-spacing:.13em;color:#68737f;margin:25px 11px 7px}.nav-link{cursor:pointer;display:flex;align-items:center;gap:11px;color:#b7c0ca!important;border-radius:11px;padding:10px 11px!important;margin:2px 0;font-size:14px}.nav-link i{font-size:17px;width:20px}.nav-link.active,.nav-link:hover{color:#ffd0a9!important;background:#3a291b!important}.side-user{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#39434e;font-size:12px;font-weight:800}.status{font-size:10px;padding:5px 8px;border-radius:99px;background:#4f2a2d;color:#ffc4c8}.status.ok{background:#174735;color:#aaf1cd}
+.content{margin-left:250px;padding:28px 34px 90px;max-width:1500px;min-height:100vh;height:100vh;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.page-title{font-size:25px;font-weight:800;letter-spacing:-.035em}.cardx{border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(29,37,46,.98),rgba(21,26,32,.98));box-shadow:0 12px 28px #0002}.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#302317,#182128);padding:28px 30px}.hero:after{content:"";position:absolute;width:360px;height:360px;border:38px solid #f47a2017;border-radius:50%;right:-100px;bottom:-235px}.eyebrow{color:var(--orange2);font-size:10px;font-weight:900;letter-spacing:.13em}.balance{font-size:35px;font-weight:850;letter-spacing:-.055em}.progress{height:8px;background:#343b43}.progress-bar{background:linear-gradient(90deg,var(--orange),var(--orange2))}.metric{height:100%;min-height:106px}.metric-icon{height:40px;width:40px;border-radius:12px;display:grid;place-items:center;background:#f47a201b;color:var(--orange2);font-size:18px}.metric-value{font-size:20px;font-weight:820;letter-spacing:-.04em}.btn-a{border:0;border-radius:10px;background:linear-gradient(135deg,#f47a20,#d55c0d);color:#fff;font-weight:750;padding:9px 14px}.btn-a:hover{color:#fff;background:#ff9940}.btn-o{border:1px solid var(--line);border-radius:10px;background:transparent;color:#e2e7eb;padding:9px 13px}.btn-o:hover{background:#2a323b;color:#fff}.page{display:none}.page.active{display:block}.table{--bs-table-bg:transparent;--bs-table-color:#f4f6f8;--bs-table-border-color:var(--line)}.table th{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#929daa;white-space:nowrap}.table td{vertical-align:middle;font-size:13px}.badge-good{background:#1b4a36;color:#a7f1cd}.badge-warn{background:#51431c;color:#f8de86}.badge-bad{background:#592b2e;color:#ffc0c5}.form-control,.form-select{border:1px solid #38424c!important;border-radius:10px;background:#101419!important;color:#fff!important;padding:.68rem .8rem}.form-control:focus,.form-select:focus{border-color:var(--orange)!important;box-shadow:0 0 0 .2rem #f47a2024!important}.modal-content{background:#1a2027;color:#fff;border:1px solid var(--line);border-radius:18px}.modal-header,.modal-footer{border-color:var(--line)}.mobile-nav{display:none}.quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.quick{display:flex;align-items:center;gap:10px;text-align:left}.quick i{font-size:18px;color:var(--orange2)}.mini-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.empty{padding:30px;text-align:center;color:var(--muted)}
+@media(max-width:1100px){.content{padding:24px 22px}.quick-actions{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.sidebar{display:none}.content{margin:0;padding:18px 14px 120px;max-width:none;height:100dvh;overflow-y:auto}.topbar{align-items:flex-start;margin-bottom:17px}.page-title{font-size:21px}.desktop-action{display:none}.hero{padding:22px}.balance{font-size:29px}.quick-actions{grid-template-columns:1fr 1fr}.mobile-nav{display:flex;position:fixed;left:0;right:0;bottom:0;height:70px;padding:5px 3px calc(5px + env(safe-area-inset-bottom));z-index:50;border-top:1px solid var(--line);background:rgba(18,22,27,.97);box-shadow:0 -9px 25px #0007;backdrop-filter:blur(18px)}.mobile-nav button{flex:1;border:0;background:transparent;color:#9ca6b1;font-size:9px;line-height:1.1;padding:4px 1px}.mobile-nav i{display:block;font-size:18px;margin-bottom:3px}.mobile-nav button.active{color:#ffad70}.table-responsive{border-radius:12px}.hide-mobile{display:none!important}}
+@media(max-width:500px){#page-settings{padding-bottom:35px}#page-settings .cardx{margin-bottom:14px}.quick-actions{grid-template-columns:1fr}.hero .row{display:block}.hero .col-lg-8{width:100%}.metric-value{font-size:18px}.topbar .btn-a{padding:8px 10px;font-size:12px}}
+</style>
+</head>
+<body>
+<section class="login" id="loginView">
+  <div class="login-card">
+    <div class="brand mb-4"><div class="brand-logo" id="loginLogo"><i class="bi bi-bicycle fs-4"></i></div><div><b>D’LANANG</b><small class="muted">Touring Financial Command Center</small></div></div>
+    <h3 class="fw-bold mb-1" id="authTitle">Masuk dashboard</h3>
+    <p class="muted small mb-4" id="authHelp">Gunakan akun Supabase untuk login. Jika belum dihubungkan, tersedia mode demo lokal.</p>
+    <form id="loginForm">
+      <input id="loginEmail" class="form-control mb-3" type="email" value="admin@dlanang.id" placeholder="Email" required>
+      <input id="loginPassword" class="form-control mb-2" type="password" value="demo123" placeholder="Password" required>
+      <button class="btn btn-a w-100" id="authButton">Masuk <i class="bi bi-arrow-right ms-1"></i></button>
+    </form>
+    <button class="btn btn-link text-secondary w-100 mt-2 text-decoration-none" id="toggleSignup">Buat akun admin Supabase</button>
+    <div class="small muted mt-3" id="loginStatus"></div>
+  </div>
+</section>
+
+<div id="app" class="hidden">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-logo" id="sideLogo"><i class="bi bi-bicycle fs-4"></i></div><div><b>D’LANANG</b><small class="muted">Command Center</small></div></div>
+  <div class="section-label">OPERASIONAL</div>
+  <nav class="nav flex-column">
+    <a class="nav-link active" data-page="dashboard"><i class="bi bi-grid-1x2"></i>Dashboard</a>
+    <a class="nav-link" data-page="members"><i class="bi bi-people"></i>Anggota & Tabungan</a>
+    <a class="nav-link" data-page="deposits"><i class="bi bi-cash-stack"></i>Setoran Masuk</a>
+    <a class="nav-link" data-page="expenses"><i class="bi bi-receipt"></i>Pengeluaran Kas</a>
+    <a class="nav-link" data-page="budget"><i class="bi bi-calculator"></i>Estimasi Anggaran</a>
+  </nav>
+  <div class="section-label">PENGATURAN</div>
+  <nav class="nav flex-column">
+    <a class="nav-link" data-page="payment"><i class="bi bi-credit-card"></i>QRIS & Rekening</a>
+    <a class="nav-link" data-page="event"><i class="bi bi-signpost-split"></i>Event Touring</a>
+    <a class="nav-link" data-page="reports"><i class="bi bi-file-earmark-pdf"></i>Laporan & PDF</a>
+    <a class="nav-link" data-page="settings"><i class="bi bi-gear"></i>Pengaturan</a>
+  </nav>
+  <div class="side-user">
+    <div class="d-flex gap-2 align-items-center"><div class="avatar" id="avatar">AD</div><div class="flex-grow-1"><b class="small" id="sidebarAdmin">Admin D’Lanang</b><small class="d-block muted" id="roleText">Bendahara</small></div></div>
+    <div class="d-flex justify-content-between align-items-center mt-2"><span class="status" id="cloudStatus">● Data lokal</span><button class="btn btn-sm btn-outline-secondary" id="logoutBtn">Keluar</button></div>
+  </div>
+</aside>
+
+<main class="content">
+<header class="topbar">
+  <div><div class="page-title" id="pageTitle">Dashboard Admin</div><p class="muted mb-0" id="pageSubtitle">Ringkasan kondisi keuangan touring saat ini.</p></div>
+  <div class="d-flex gap-2"><button class="btn btn-o desktop-action" data-page="reports"><i class="bi bi-file-earmark-pdf"></i></button><button class="btn btn-a" data-action="addDeposit"><i class="bi bi-plus-lg me-1"></i>Input Setoran</button></div>
+</header>
+
+<section class="page active" id="page-dashboard">
+  <div class="cardx hero mb-3">
+    <div class="row"><div class="col-lg-8 position-relative" style="z-index:1">
+      <div class="eyebrow">EVENT AKTIF</div><h2 class="fw-bold mt-2 mb-1" id="dashEvent">-</h2><p class="muted mb-3" id="dashRoute">-</p>
+      <div class="balance" id="dashCash">Rp 0</div><small class="muted">Saldo kas tersedia dari target <span id="dashTarget">Rp 0</span></small>
+      <div class="progress mt-3"><div class="progress-bar" id="dashProgress"></div></div>
+      <div class="d-flex justify-content-between mt-2 small"><span id="dashPercentage">0%</span><span class="muted" id="dashRemaining">Sisa Rp 0</span></div>
+    </div></div>
+  </div>
+
+  <div class="quick-actions mb-3">
+    <button class="btn btn-o quick" data-action="addMember"><i class="bi bi-person-plus"></i><span><b>Tambah anggota</b><small class="d-block muted">Daftarkan peserta</small></span></button>
+    <button class="btn btn-o quick" data-action="addDeposit"><i class="bi bi-cash-coin"></i><span><b>Input setoran</b><small class="d-block muted">Catat pembayaran</small></span></button>
+    <button class="btn btn-o quick" data-action="addExpense"><i class="bi bi-receipt"></i><span><b>Tambah biaya</b><small class="d-block muted">Catat pengeluaran</small></span></button>
+    <button class="btn btn-o quick" data-page="reports"><i class="bi bi-file-earmark-pdf"></i><span><b>Buat laporan</b><small class="d-block muted">Export PDF</small></span></button>
+  </div>
+
+  <div class="row g-3 mb-3">
+    <div class="col-6 col-xl-3"><div class="cardx p-3 metric"><div class="d-flex gap-3"><div class="metric-icon"><i class="bi bi-people"></i></div><div><small class="muted">Anggota</small><div class="metric-value" id="metricMembers">0</div><small class="muted">aktif</small></div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="cardx p-3 metric"><div class="d-flex gap-3"><div class="metric-icon"><i class="bi bi-check2-circle"></i></div><div><small class="muted">Lunas</small><div class="metric-value text-success" id="metricPaid">0</div><small class="muted">mencapai target</small></div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="cardx p-3 metric"><div class="d-flex gap-3"><div class="metric-icon"><i class="bi bi-arrow-down-left"></i></div><div><small class="muted">Setoran</small><div class="metric-value text-success" id="metricIncome">Rp 0</div><small class="muted">terverifikasi</small></div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="cardx p-3 metric"><div class="d-flex gap-3"><div class="metric-icon"><i class="bi bi-arrow-up-right"></i></div><div><small class="muted">Pengeluaran</small><div class="metric-value text-danger" id="metricExpense">Rp 0</div><small class="muted">tercatat</small></div></div></div></div>
+  </div>
+  <div class="cardx p-3 p-lg-4"><div class="d-flex justify-content-between align-items-center mb-2"><div><h5 class="mb-0">Aktivitas terbaru</h5><small class="muted">6 transaksi terakhir</small></div><button class="btn btn-sm btn-o" data-page="deposits">Lihat semua</button></div><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Jenis</th><th>Keterangan</th><th>Tanggal</th><th class="text-end">Nominal</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+</section>
+
+<section class="page" id="page-members"><div class="cardx p-3 p-lg-4"><div class="d-flex justify-content-between align-items-center gap-3 mb-3"><div><h5 class="mb-1">Anggota & Tabungan</h5><small class="muted">Saldo dihitung otomatis dari setoran terverifikasi.</small></div><button class="btn btn-a" data-action="addMember"><i class="bi bi-person-plus me-1"></i>Tambah</button></div><div class="table-responsive"><table class="table"><thead><tr><th>Anggota</th><th>Motor / Plat</th><th>Target</th><th>Tabungan</th><th>Sisa</th><th>Status</th><th></th></tr></thead><tbody id="memberRows"></tbody></table></div></div></section>
+<section class="page" id="page-deposits"><div class="cardx p-3 p-lg-4"><div class="d-flex justify-content-between align-items-center gap-3 mb-3"><div><h5 class="mb-1">Setoran Masuk</h5><small class="muted">Kelola pemasukan anggota.</small></div><button class="btn btn-a" data-action="addDeposit">Input Setoran</button></div><div class="table-responsive"><table class="table"><thead><tr><th>Anggota</th><th>Tanggal</th><th>Metode</th><th>Catatan</th><th class="text-end">Nominal</th><th></th></tr></thead><tbody id="depositRows"></tbody></table></div></div></section>
+<section class="page" id="page-expenses"><div class="cardx p-3 p-lg-4"><div class="d-flex justify-content-between align-items-center gap-3 mb-3"><div><h5 class="mb-1">Pengeluaran Kas</h5><small class="muted">Semua biaya mengurangi saldo kas.</small></div><button class="btn btn-a" data-action="addExpense">Tambah Biaya</button></div><div class="table-responsive"><table class="table"><thead><tr><th>Tanggal</th><th>Kategori</th><th>Keterangan</th><th>Penanggung jawab</th><th class="text-end">Nominal</th><th></th></tr></thead><tbody id="expenseRows"></tbody></table></div></div></section>
+<section class="page" id="page-budget"><div class="row g-3"><div class="col-lg-7"><div class="cardx p-4"><div class="d-flex justify-content-between align-items-center"><h5 class="mb-0">Estimasi Anggaran</h5><button class="btn btn-a" data-action="addBudget">Tambah Pos</button></div><div id="budgetRows" class="mt-3"></div></div></div><div class="col-lg-5"><div class="cardx p-4"><h5>Perhitungan otomatis</h5><div class="d-flex justify-content-between border-bottom border-secondary-subtle py-2"><span class="muted">Total estimasi</span><b id="budgetTotal"></b></div><div class="d-flex justify-content-between border-bottom border-secondary-subtle py-2"><span class="muted">Dana terkumpul</span><b class="text-success" id="budgetCollected"></b></div><div class="d-flex justify-content-between py-2"><span class="muted">Kekurangan dana</span><b class="text-warning" id="budgetNeed"></b></div></div></div></div></section>
+<section class="page" id="page-payment"><div class="cardx p-4"><h5>QRIS & Rekening</h5><p class="muted small">Data tersimpan ke Supabase jika cloud aktif.</p><form id="paymentForm" class="row g-3"><div class="col-md-6"><input id="paymentHolder" class="form-control" placeholder="Nama penerima"></div><div class="col-md-6"><input id="paymentBank" class="form-control" placeholder="Bank / e-wallet"></div><div class="col-md-6"><input id="paymentNumber" class="form-control" placeholder="Nomor rekening / merchant"></div><div class="col-md-6"><input id="paymentQris" class="form-control" placeholder="URL QRIS (opsional)"></div><div class="col-12"><textarea id="paymentInstruction" class="form-control" rows="3" placeholder="Instruksi pembayaran"></textarea></div><div><button class="btn btn-a">Simpan Pembayaran</button></div></form></div></section>
+<section class="page" id="page-event"><div class="cardx p-4"><h5>Event Touring</h5><p class="muted small">Event aktif dipakai di dashboard.</p><form id="eventForm" class="row g-3"><div class="col-md-6"><input id="eventTitle" class="form-control" placeholder="Nama event"></div><div class="col-md-6"><input id="eventRoute" class="form-control" placeholder="Rute"></div><div class="col-md-4"><input id="eventStart" type="date" class="form-control"></div><div class="col-md-4"><input id="eventEnd" type="date" class="form-control"></div><div class="col-md-4"><input id="eventTarget" type="number" class="form-control" placeholder="Target dana"></div><div class="col-12"><input id="eventNote" class="form-control" placeholder="Catatan event"></div><div><button class="btn btn-a">Simpan Event</button></div></form></div></section>
+<section class="page" id="page-reports"><div class="cardx p-4"><div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4"><div><div class="eyebrow">EXPORT LAPORAN</div><h5 class="mb-1 mt-1">Laporan siap kirim</h5><p class="muted mb-0">PDF dibuat dari data saat ini.</p></div><div class="metric-icon"><i class="bi bi-file-earmark-pdf"></i></div></div><div class="row g-3"><div class="col-12 col-md-4"><button id="pdfGroup" class="btn btn-a w-100 py-3"><i class="bi bi-file-earmark-pdf d-block fs-5 mb-1"></i>Rekap Grup</button></div><div class="col-12 col-md-4"><button id="pdfMembers" class="btn btn-o w-100 py-3"><i class="bi bi-people d-block fs-5 mb-1"></i>Tabungan Anggota</button></div><div class="col-12 col-md-4"><button id="pdfTransactions" class="btn btn-o w-100 py-3"><i class="bi bi-receipt d-block fs-5 mb-1"></i>Transaksi Detail</button></div></div></div></section>
+<section class="page" id="page-settings">
+  <div class="row g-3">
+    <div class="col-lg-7"><div class="cardx p-4">
+      <div class="d-flex justify-content-between align-items-center gap-2"><div><h5 class="mb-1">Supabase Cloud</h5><p class="muted small mb-0">https://ejithxsbjzzloxpgqnkx.supabase.co</p></div><span id="supabaseBadge" class="badge badge-bad">Belum terhubung</span></div>
+      <form id="supabaseForm" class="mt-3"><label class="small muted">Project URL</label><input id="supabaseUrl" class="form-control mb-3" placeholder="https://project.supabase.co"><label class="small muted">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqaXRoeHNianp6bG94cGdxbmt4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMDQwMzAsImV4cCI6MjEwNTc4MDAzMH0.aP-1qBJJckckrK4nDsaX8ulop4bqih8QGWsXyBx1IJ4</label><textarea id="supabaseKey" class="form-control mb-3" rows="3" placeholder="sb_publishable_... atau anon key"></textarea><div class="d-flex flex-wrap gap-2"><button type="button" id="testSupabase" class="btn btn-o">Uji & Hubungkan</button><button class="btn btn-a">Simpan</button><button type="button" id="disconnectSupabase" class="btn btn-outline-danger">Putuskan</button></div></form>
+      <small id="supabaseMessage" class="muted d-block mt-3"></small>
+    </div></div>
+    <div class="col-lg-5">
+      <div class="cardx p-4 mb-3">
+  <h5>Branding & Logo</h5>
+  <p class="muted small mb-2">Pilih file logo langsung dari komputer/HP. Tidak perlu memasukkan link.</p>
+  <div class="d-flex align-items-center gap-3 flex-wrap">
+    <div id="logoPreview" class="brand-logo" style="width:64px;height:64px;flex:0 0 64px"><i class="bi bi-image fs-4"></i></div>
+    <div class="flex-grow-1">
+      <input id="logoFile" class="form-control" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml">
+      <small class="muted d-block mt-2">PNG/JPG/WebP/SVG • disarankan maksimal 1 MB</small>
+    </div>
+  </div>
+  <div class="d-flex gap-2 mt-3">
+    <button type="button" id="saveLogo" class="btn btn-a">Simpan Logo</button>
+    <button type="button" id="removeLogo" class="btn btn-outline-danger">Hapus</button>
+  </div>
+  <small id="logoMessage" class="muted d-block mt-2"></small>
+</div>
+      <div class="cardx p-4 mb-3"><h5>Profil Admin</h5><form id="adminForm"><input id="adminName" class="form-control mb-2" placeholder="Nama admin"><button class="btn btn-a w-100">Simpan Nama</button></form></div>
+      <div class="cardx p-4"><h5>Ganti Password</h5><form id="passwordForm"><input id="oldPassword" class="form-control mb-2" type="password" placeholder="Password saat ini"><input id="newPassword" class="form-control mb-2" type="password" placeholder="Password baru minimal 6 karakter"><input id="confirmPassword" class="form-control mb-3" type="password" placeholder="Konfirmasi password"><button class="btn btn-a w-100">Ganti Password</button></form></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<nav class="mobile-nav"><button class="active" data-page="dashboard"><i class="bi bi-grid-1x2"></i>Home</button><button data-page="members"><i class="bi bi-people"></i>Anggota</button><button data-page="deposits"><i class="bi bi-cash-stack"></i>Setoran</button><button data-page="reports"><i class="bi bi-file-earmark-pdf"></i>PDF</button><button data-page="settings"><i class="bi bi-gear"></i>Atur</button></nav>
+</div>
+
+<div class="modal fade" id="editorModal"><div class="modal-dialog modal-dialog-centered"><form id="editorForm" class="modal-content"><div class="modal-header"><h5 id="editorTitle"></h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div id="editorBody" class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-o" data-bs-dismiss="modal">Batal</button><button class="btn btn-a">Simpan</button></div></form></div></div>
+<div class="toast-container position-fixed top-0 end-0 p-3"><div id="appToast" class="toast"><div id="toastText" class="toast-body"></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+<script>
+const LS='dlanang_cc_v2',R=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n||0)),TOD=()=>new Date().toISOString().slice(0,10);
+const modal=new bootstrap.Modal('#editorModal'),toast=new bootstrap.Toast('#appToast'); let submitAction=null, sb=null, cloud=false, authMode='login';
+const DEFAULT={admin:'Admin D’Lanang',logo:'',supabase:{url:'',key:''},event:{id:null,title:'Bromo Adventure 2026',route:'Bogor → Bromo → Malang',start:'2026-10-10',end:'2026-10-12',target:15000000,note:'Touring tahunan D’Lanang'},payment:{holder:'D’Lanang Touring',bank:'BCA',number:'1234567890',qris:'',instruction:'Transfer sesuai nominal dan tulis nama anggota.'},members:[{id:'1',name:'Andi Pratama',motor:'Honda CB150R',plate:'F 1234 AP',target:1200000},{id:'2',name:'Budi Santoso',motor:'Yamaha NMAX',plate:'F 9876 BS',target:1200000},{id:'3',name:'Rizky Maulana',motor:'Honda ADV 160',plate:'F 2026 RM',target:1200000}],deposits:[{id:'1',member_id:'1',date:'2026-09-20',amount:650000,method:'Transfer',status:'Terverifikasi',note:'Setoran September'},{id:'2',member_id:'2',date:'2026-09-21',amount:1200000,method:'QRIS',status:'Terverifikasi',note:'Lunas'},{id:'3',member_id:'3',date:'2026-09-22',amount:450000,method:'Cash',status:'Terverifikasi',note:'Cicilan'}],expenses:[{id:'1',date:'2026-09-22',category:'Penginapan',description:'DP Villa Bromo Indah',person:'Bendahara',amount:1200000}],budgets:[{id:'1',name:'Penginapan',amount:5000000},{id:'2',name:'Konsumsi',amount:3500000},{id:'3',name:'Dokumentasi',amount:1500000},{id:'4',name:'Dana darurat',amount:3000000}]};
+let S=JSON.parse(localStorage.getItem(LS)||'null')||structuredClone(DEFAULT);
+const saveLocal=()=>localStorage.setItem(LS,JSON.stringify(S));
+const say=x=>{toastText.textContent=x;toast.show()};
+const byId=(a,id)=>a.find(x=>String(x.id)===String(id)), next=a=>String(a.length?Math.max(...a.map(x=>Number(x.id)||0))+1:1);
+const member=id=>byId(S.members,id), saved=id=>S.deposits.filter(x=>String(x.member_id)===String(id)&&x.status==='Terverifikasi').reduce((a,x)=>a+Number(x.amount||0),0);
+const income=()=>S.deposits.filter(x=>x.status==='Terverifikasi').reduce((a,x)=>a+Number(x.amount||0),0), expense=()=>S.expenses.reduce((a,x)=>a+Number(x.amount||0),0);
+const memberStatus=m=>saved(m.id)>=Number(m.target)?'Lunas':saved(m.id)>0?'Cicil aktif':'Belum setor';
+const badge=x=>`<span class="badge ${x==='Lunas'||x==='Terverifikasi'?'badge-good':x==='Belum setor'?'badge-bad':'badge-warn'}">${x}</span>`;
+const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+
+async function connectFromStored(){
+  if(!S.supabase.url||!S.supabase.key){cloud=false;renderSupabase();return false}
+  try{sb=window.supabase.createClient(S.supabase.url,S.supabase.key);const {data,error}=await sb.auth.getSession();if(error)throw error;cloud=!!data.session;renderSupabase();return true}catch(e){cloud=false;renderSupabase();return false}
+}
+async function loadCloud(){
+  if(!sb)return;
+  const [m,d,e,b,ev,p,settings,profile]=await Promise.all([
+    sb.from('members').select('*').order('created_at'),
+    sb.from('deposits').select('*').order('date',{ascending:false}),
+    sb.from('expenses').select('*').order('date',{ascending:false}),
+    sb.from('budgets').select('*').order('created_at'),
+    sb.from('events').select('*').order('start_date',{ascending:false}).limit(1),
+    sb.from('payment_settings').select('*').eq('id',1).maybeSingle(),
+    sb.from('app_settings').select('*').eq('id',1).maybeSingle(),
+    sb.from('profiles').select('*').eq('id',(await sb.auth.getUser()).data.user?.id).maybeSingle()
+  ]);
+  const errors=[m,d,e,b,ev,p,settings,profile].filter(x=>x.error);
+  if(errors.length) throw errors[0].error;
+  S.members=m.data||[]; S.deposits=d.data||[]; S.expenses=e.data||[]; S.budgets=b.data||[];
+  if(ev.data?.[0]){let x=ev.data[0];S.event={id:x.id,title:x.title,route:x.route,start:x.start_date,end:x.end_date,target:Number(x.target),note:x.note||''}}
+  if(p.data)S.payment={holder:p.data.holder||'',bank:p.data.bank||'',number:p.data.number||'',qris:p.data.qris||'',instruction:p.data.instruction||''};
+  if(settings.data?.logo_url)S.logo=settings.data.logo_url;
+  if(profile.data?.name)S.admin=profile.data.name;
+  saveLocal();render();
+}
+async function bootAfterLogin(){
+  loginView.classList.add('hidden');app.classList.remove('hidden');
+  if(cloud){try{await loadCloud();say('Data Supabase berhasil dimuat.')}catch(e){say('Login berhasil, tetapi data cloud gagal dimuat: '+e.message)}}else{render();say('Mode demo lokal aktif.')}
+}
+function renderSupabase(){let on=!!(sb&&cloud);supabaseBadge.className='badge '+(on?'badge-good':'badge-bad');supabaseBadge.textContent=on?'Supabase terhubung':'Belum terhubung';cloudStatus.className='status '+(on?'ok':'');cloudStatus.textContent=on?'● Supabase terhubung':'● Data lokal';supabaseMessage.textContent=on?'CRUD aktif: data dibaca dan disimpan ke Supabase.':'Data masih lokal. Isi URL + key lalu uji koneksi.'}
+function applyLogo(){
+  let c=S.logo?`<img src="${escapeHtml(S.logo)}" alt="Logo">`:'<i class="bi bi-bicycle fs-4"></i>';
+  sideLogo.innerHTML=c;loginLogo.innerHTML=c;
+  if(typeof logoPreview!=='undefined' && logoPreview){
+    logoPreview.innerHTML=S.logo?`<img src="${escapeHtml(S.logo)}" alt="Preview logo">`:'<i class="bi bi-image fs-4"></i>';
+  }
+}
+function render(){
+  saveLocal();let cash=income()-expense(),pct=Math.max(0,Math.min(100,cash/(Number(S.event.target)||1)*100));
+  dashEvent.textContent=S.event.title||'-';dashRoute.textContent=`${S.event.start||'-'} – ${S.event.end||'-'} • ${S.event.route||'-'}`;dashCash.textContent=R(cash);dashTarget.textContent=R(S.event.target);dashProgress.style.width=pct+'%';dashPercentage.textContent=Math.round(pct)+'% tercapai';dashRemaining.textContent='Sisa '+R(Math.max(0,S.event.target-cash));
+  metricMembers.textContent=S.members.length;metricPaid.textContent=S.members.filter(m=>memberStatus(m)==='Lunas').length;metricIncome.textContent=R(income());metricExpense.textContent=R(expense());
+  memberRows.innerHTML=S.members.length?S.members.map(m=>`<tr><td><b>${escapeHtml(m.name)}</b></td><td>${escapeHtml(m.motor||'-')}<small class="muted d-block">${escapeHtml(m.plate||'-')}</small></td><td>${R(m.target)}</td><td class="text-success fw-bold">${R(saved(m.id))}</td><td>${R(Math.max(0,m.target-saved(m.id)))}</td><td>${badge(memberStatus(m))}</td><td class="text-end text-nowrap"><button class="btn btn-sm btn-o" onclick="editMember('${m.id}')">Edit</button> <button class="btn btn-sm btn-outline-danger" onclick="deleteMember('${m.id}')">Hapus</button></td></tr>`).join(''):'<tr><td colspan="7" class="empty">Belum ada anggota.</td></tr>';
+  depositRows.innerHTML=S.deposits.length?S.deposits.map(d=>`<tr><td>${escapeHtml(member(d.member_id)?.name||'-')}</td><td>${d.date}</td><td>${escapeHtml(d.method||'-')}</td><td>${escapeHtml(d.note||'-')}<small class="d-block">${badge(d.status||'Terverifikasi')}</small></td><td class="text-end text-success fw-bold">+${R(d.amount)}</td><td class="text-end text-nowrap"><button class="btn btn-sm btn-o" onclick="editDeposit('${d.id}')">Edit</button> <button class="btn btn-sm btn-outline-danger" onclick="deleteItem('deposits','${d.id}')">Hapus</button></td></tr>`).join(''):'<tr><td colspan="6" class="empty">Belum ada setoran.</td></tr>';
+  expenseRows.innerHTML=S.expenses.length?S.expenses.map(e=>`<tr><td>${e.date}</td><td>${escapeHtml(e.category)}</td><td>${escapeHtml(e.description)}</td><td>${escapeHtml(e.person||'-')}</td><td class="text-end text-danger fw-bold">-${R(e.amount)}</td><td class="text-end text-nowrap"><button class="btn btn-sm btn-o" onclick="editExpense('${e.id}')">Edit</button> <button class="btn btn-sm btn-outline-danger" onclick="deleteItem('expenses','${e.id}')">Hapus</button></td></tr>`).join(''):'<tr><td colspan="6" class="empty">Belum ada pengeluaran.</td></tr>';
+  budgetRows.innerHTML=S.budgets.length?S.budgets.map(b=>`<div class="d-flex justify-content-between align-items-center py-3 border-bottom border-secondary-subtle gap-2"><div><b>${escapeHtml(b.name)}</b><small class="d-block muted">Estimasi kebutuhan</small></div><div class="text-nowrap"><b>${R(b.amount)}</b> <button class="btn btn-sm btn-o" onclick="editBudget('${b.id}')">Edit</button> <button class="btn btn-sm btn-outline-danger" onclick="deleteItem('budgets','${b.id}')">Hapus</button></div></div>`).join(''):'<div class="empty">Belum ada pos anggaran.</div>';
+  let total=S.budgets.reduce((a,b)=>a+Number(b.amount||0),0);budgetTotal.textContent=R(total);budgetCollected.textContent=R(income());budgetNeed.textContent=R(Math.max(0,total-income()));
+  paymentHolder.value=S.payment.holder;paymentBank.value=S.payment.bank;paymentNumber.value=S.payment.number;paymentQris.value=S.payment.qris;paymentInstruction.value=S.payment.instruction;
+  eventTitle.value=S.event.title;eventRoute.value=S.event.route;eventStart.value=S.event.start;eventEnd.value=S.event.end;eventTarget.value=S.event.target;eventNote.value=S.event.note;adminName.value=S.admin;sidebarAdmin.textContent=S.admin;avatar.textContent=(S.admin||'AD').split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase();supabaseUrl.value=S.supabase.url;supabaseKey.value=S.supabase.key;applyLogo();renderSupabase();
+  let recent=[...S.deposits.map(d=>({date:d.date,type:'Pemasukan',text:'Setoran '+(member(d.member_id)?.name||'-'),amount:d.amount,plus:true})),...S.expenses.map(e=>({date:e.date,type:'Pengeluaran',text:e.description,amount:e.amount,plus:false}))].sort((a,b)=>b.date.localeCompare(a.date));
+  recentRows.innerHTML=recent.length?recent.slice(0,6).map(x=>`<tr><td>${x.type}</td><td>${escapeHtml(x.text)}</td><td>${x.date}</td><td class="text-end ${x.plus?'text-success':'text-danger'}">${x.plus?'+':'-'}${R(x.amount)}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">Belum ada aktivitas.</td></tr>';
+}
+const labels={dashboard:['Dashboard Admin','Ringkasan kondisi keuangan touring saat ini.'],members:['Anggota & Tabungan','Kelola target serta saldo kontribusi anggota.'],deposits:['Setoran Masuk','Catat seluruh pemasukan anggota.'],expenses:['Pengeluaran Kas','Kelola biaya touring.'],budget:['Estimasi Anggaran','Rencanakan kebutuhan dana perjalanan.'],payment:['QRIS & Rekening','Atur informasi metode pembayaran.'],event:['Event Touring','Atur event aktif dan target dana.'],reports:['Laporan & PDF','Buat dokumen siap kirim ke grup.'],settings:['Pengaturan','Kelola cloud, branding, serta akses admin.']};
+function nav(page){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+page).classList.add('active');document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));pageTitle.textContent=labels[page][0];pageSubtitle.textContent=labels[page][1];scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-page]').forEach(x=>x.onclick=()=>nav(x.dataset.page));
+document.addEventListener('click',e=>{let x=e.target.closest('[data-action]')?.dataset.action;if(x==='addMember')openMember();if(x==='addDeposit')openDeposit();if(x==='addExpense')openExpense();if(x==='addBudget')openBudget()});
+function openModal(title,body,fn){editorTitle.textContent=title;editorBody.innerHTML=body;submitAction=fn;modal.show()}
+editorForm.onsubmit=async e=>{e.preventDefault();try{await submitAction();modal.hide();render();say('Data tersimpan.')}catch(err){say('Gagal menyimpan: '+err.message)}}
+async function sync(table,row,id){if(!cloud)return;let q=id?sb.from(table).update(row).eq('id',id):sb.from(table).insert(row);let {error}=await q;if(error)throw error}
+async function remove(table,id){if(cloud){let{error}=await sb.from(table).delete().eq('id',id);if(error)throw error}}
+function openMember(m={}){openModal(m.id?'Edit Anggota':'Tambah Anggota',`<input id="fName" class="form-control mb-2" value="${escapeHtml(m.name||'')}" placeholder="Nama anggota" required><input id="fMotor" class="form-control mb-2" value="${escapeHtml(m.motor||'')}" placeholder="Jenis motor"><input id="fPlate" class="form-control mb-2" value="${escapeHtml(m.plate||'')}" placeholder="Plat nomor"><input id="fTarget" type="number" class="form-control" value="${m.target||1200000}" placeholder="Target tabungan" required>`,async()=>{let v={name:fName.value,motor:fMotor.value,plate:fPlate.value,target:+fTarget.value};if(m.id){Object.assign(member(m.id),v);await sync('members',v,m.id)}else{if(cloud){let{data,error}=await sb.from('members').insert(v).select().single();if(error)throw error;S.members.push(data)}else S.members.push({id:next(S.members),...v})}})}
+function editMember(i){openMember(member(i))}
+function openDeposit(d={}){if(!S.members.length)return say('Tambahkan anggota terlebih dahulu.');openModal(d.id?'Edit Setoran':'Input Setoran',`<select id="fMember" class="form-select mb-2">${S.members.map(m=>`<option value="${m.id}" ${String(m.id)===String(d.member_id)?'selected':''}>${escapeHtml(m.name)}</option>`).join('')}</select><input id="fDate" type="date" class="form-control mb-2" value="${d.date||TOD()}"><input id="fAmount" type="number" class="form-control mb-2" value="${d.amount||''}" placeholder="Nominal" required><select id="fMethod" class="form-select mb-2"><option>Cash</option><option>Transfer</option><option>QRIS</option></select><select id="fStatus" class="form-select mb-2"><option>Terverifikasi</option><option>Menunggu verifikasi</option></select><input id="fNote" class="form-control" value="${escapeHtml(d.note||'')}" placeholder="Catatan">`,async()=>{let v={member_id:fMember.value,date:fDate.value,amount:+fAmount.value,method:fMethod.value,status:fStatus.value,note:fNote.value};if(d.id){Object.assign(byId(S.deposits,d.id),v);await sync('deposits',v,d.id)}else{if(cloud){let{data,error}=await sb.from('deposits').insert(v).select().single();if(error)throw error;S.deposits.push(data)}else S.deposits.push({id:next(S.deposits),...v})}})}
+function editDeposit(i){openDeposit(byId(S.deposits,i))}
+function openExpense(e={}){openModal(e.id?'Edit Pengeluaran':'Tambah Pengeluaran',`<input id="fDate" type="date" class="form-control mb-2" value="${e.date||TOD()}"><input id="fCategory" class="form-control mb-2" value="${escapeHtml(e.category||'')}" placeholder="Kategori" required><input id="fDescription" class="form-control mb-2" value="${escapeHtml(e.description||'')}" placeholder="Keterangan" required><input id="fPerson" class="form-control mb-2" value="${escapeHtml(e.person||'')}" placeholder="Penanggung jawab"><input id="fAmount" type="number" class="form-control" value="${e.amount||''}" placeholder="Nominal" required>`,async()=>{let v={date:fDate.value,category:fCategory.value,description:fDescription.value,person:fPerson.value,amount:+fAmount.value};if(e.id){Object.assign(byId(S.expenses,e.id),v);await sync('expenses',v,e.id)}else{if(cloud){let{data,error}=await sb.from('expenses').insert(v).select().single();if(error)throw error;S.expenses.push(data)}else S.expenses.push({id:next(S.expenses),...v})}})}
+function editExpense(i){openExpense(byId(S.expenses,i))}
+function openBudget(b={}){openModal(b.id?'Edit Pos Anggaran':'Tambah Pos Anggaran',`<input id="fName" class="form-control mb-2" value="${escapeHtml(b.name||'')}" placeholder="Nama pos" required><input id="fAmount" type="number" class="form-control" value="${b.amount||''}" placeholder="Nominal estimasi" required>`,async()=>{let v={name:fName.value,amount:+fAmount.value};if(b.id){Object.assign(byId(S.budgets,b.id),v);await sync('budgets',v,b.id)}else{if(cloud){let{data,error}=await sb.from('budgets').insert(v).select().single();if(error)throw error;S.budgets.push(data)}else S.budgets.push({id:next(S.budgets),...v})}})}
+function editBudget(i){openBudget(byId(S.budgets,i))}
+async function deleteItem(table,id){if(!confirm('Hapus data ini?'))return;try{await remove(table,id);S[table]=S[table].filter(x=>String(x.id)!==String(id));render();say('Data dihapus.')}catch(e){say('Gagal menghapus: '+e.message)}}
+async function deleteMember(id){if(!confirm('Hapus anggota beserta seluruh setorannya?'))return;try{if(cloud){let{error}=await sb.from('members').delete().eq('id',id);if(error)throw error}else S.deposits=S.deposits.filter(x=>String(x.member_id)!==String(id));S.members=S.members.filter(x=>String(x.id)!==String(id));S.deposits=S.deposits.filter(x=>String(x.member_id)!==String(id));render();say('Anggota dihapus.')}catch(e){say('Gagal menghapus: '+e.message)}}
+paymentForm.onsubmit=async e=>{e.preventDefault();let v={id:1,holder:paymentHolder.value,bank:paymentBank.value,number:paymentNumber.value,qris:paymentQris.value,instruction:paymentInstruction.value};try{if(cloud){let{error}=await sb.from('payment_settings').upsert(v);if(error)throw error}S.payment={holder:v.holder,bank:v.bank,number:v.number,qris:v.qris,instruction:v.instruction};render();say('Informasi pembayaran tersimpan.')}catch(x){say('Gagal menyimpan: '+x.message)}};
+eventForm.onsubmit=async e=>{e.preventDefault();let v={title:eventTitle.value,route:eventRoute.value,start_date:eventStart.value,end_date:eventEnd.value,target:+eventTarget.value,note:eventNote.value};try{if(cloud){let q=S.event.id?sb.from('events').update(v).eq('id',S.event.id):sb.from('events').insert(v).select().single();let{data,error}=await q;if(error)throw error;if(data)S.event.id=data[0]?.id||data.id}else S.event={...S.event,...{title:v.title,route:v.route,start:v.start_date,end:v.end_date,target:v.target,note:v.note}};if(cloud)S.event={...S.event,title:v.title,route:v.route,start:v.start_date,end:v.end_date,target:v.target,note:v.note};render();say('Event touring tersimpan.')}catch(x){say('Gagal menyimpan: '+x.message)}};
+adminForm.onsubmit=async e=>{e.preventDefault();S.admin=adminName.value.trim()||'Admin D’Lanang';try{if(cloud){let u=(await sb.auth.getUser()).data.user;if(u){let{error}=await sb.from('profiles').upsert({id:u.id,name:S.admin,role:'admin'});if(error)throw error}}render();say('Nama admin tersimpan.')}catch(x){say('Gagal menyimpan: '+x.message)}};
+passwordForm.onsubmit=async e=>{e.preventDefault();if(cloud){try{let{error}=await sb.auth.updateUser({password:newPassword.value});if(error)throw error;say('Password Supabase berhasil diganti.');e.target.reset()}catch(x){say('Gagal mengganti password: '+x.message)}}else{say('Mode lokal: perubahan password lokal tidak didukung pada versi cloud baru. Gunakan Supabase.')}};
+saveLogo.onclick=async()=>{
+  const file=logoFile.files?.[0];
+  if(!file) return say('Pilih file logo terlebih dahulu.');
+  if(file.size>1024*1024) return say('Ukuran logo maksimal 1 MB.');
+  if(!file.type.startsWith('image/')) return say('File harus berupa gambar.');
+  try{
+    const reader=new FileReader();
+    const data=await new Promise((resolve,reject)=>{reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)});
+    S.logo=data;
+    if(cloud){
+      const {error}=await sb.from('app_settings').upsert({id:1,logo_url:S.logo});
+      if(error) throw error;
+    }
+    render(); logoFile.value=''; logoMessage.textContent='Logo berhasil disimpan.';
+    say('Logo berhasil disimpan.');
+  }catch(e){logoMessage.textContent=e.message;say('Gagal menyimpan logo: '+e.message)}
+};
+removeLogo.onclick=async()=>{
+  try{
+    S.logo='';
+    if(cloud){const{error}=await sb.from('app_settings').upsert({id:1,logo_url:''});if(error)throw error}
+    render(); logoMessage.textContent='Logo dihapus.'; say('Logo dihapus.');
+  }catch(e){say('Gagal: '+e.message)}
+};
+supabaseForm.onsubmit=e=>{e.preventDefault();S.supabase.url=supabaseUrl.value.trim();S.supabase.key=supabaseKey.value.trim();saveLocal();say('Konfigurasi disimpan. Klik Uji & Hubungkan.')};
+testSupabase.onclick=async()=>{S.supabase.url=supabaseUrl.value.trim();S.supabase.key=supabaseKey.value.trim();if(!S.supabase.url||!S.supabase.key)return say('Project URL dan key wajib diisi.');saveLocal();try{sb=window.supabase.createClient(S.supabase.url,S.supabase.key);let{error}=await sb.from('app_settings').select('id').limit(1);if(error)throw error;cloud=true;renderSupabase();say('Supabase terhubung. Silakan login dengan akun Supabase.')}catch(e){cloud=false;renderSupabase();say('Koneksi gagal: '+e.message)}};
+logoFile.onchange=()=>{
+  const file=logoFile.files?.[0];
+  if(!file)return;
+  if(file.size>1024*1024){logoMessage.textContent='Ukuran file lebih dari 1 MB.';logoFile.value='';return}
+  const reader=new FileReader();
+  reader.onload=()=>{logoPreview.innerHTML=`<img src="${escapeHtml(reader.result)}" alt="Preview logo">`;logoMessage.textContent=file.name};
+  reader.readAsDataURL(file);
+};
+disconnectSupabase.onclick=async()=>{try{if(sb)await sb.auth.signOut()}catch(e){}sb=null;cloud=false;S.supabase={url:'',key:''};saveLocal();renderSupabase();say('Supabase diputus.');};
+function makePdf(title,head,body,name){let{jsPDF}=window.jspdf,doc=new jsPDF();doc.setFontSize(16);doc.text("D’LANANG TOURING",14,15);doc.setFontSize(11);doc.text(title,14,23);doc.setFontSize(8);doc.text('Dicetak: '+new Date().toLocaleString('id-ID'),14,28);doc.autoTable({startY:33,head:[head],body});doc.save(name)}
+pdfGroup.onclick=()=>makePdf('REKAP DANA TOURING',['Keterangan','Nilai'],[['Event',S.event.title],['Target Dana',R(S.event.target)],['Setoran Terkonfirmasi',R(income())],['Pengeluaran',R(expense())],['Saldo Kas',R(income()-expense())],['Jumlah Anggota',S.members.length]],'rekap-grup-dlanang.pdf');
+pdfMembers.onclick=()=>makePdf('REKAP TABUNGAN ANGGOTA',['Nama','Target','Tabungan','Sisa','Status'],S.members.map(m=>[m.name,R(m.target),R(saved(m.id)),R(Math.max(0,m.target-saved(m.id))),memberStatus(m)]),'tabungan-anggota-dlanang.pdf');
+pdfTransactions.onclick=()=>makePdf('LAPORAN TRANSAKSI DETAIL',['Tanggal','Jenis','Keterangan','Nominal'],[...S.deposits.map(d=>[d.date,'Setoran',member(d.member_id)?.name||'-',R(d.amount)]),...S.expenses.map(e=>[e.date,'Pengeluaran',e.description,'-'+R(e.amount)])],'transaksi-dlanang.pdf');
+
+toggleSignup.onclick=()=>{authMode=authMode==='login'?'signup':'login';authTitle.textContent=authMode==='login'?'Masuk dashboard':'Buat akun admin';authHelp.textContent=authMode==='login'?'Gunakan akun Supabase untuk login.':'Akun dibuat di Supabase Auth; jika email confirmation aktif, cek email setelah daftar.';authButton.innerHTML=authMode==='login'?'Masuk <i class="bi bi-arrow-right ms-1"></i>':'Daftar <i class="bi bi-person-plus ms-1"></i>';toggleSignup.textContent=authMode==='login'?'Buat akun admin Supabase':'Kembali ke login'};
+loginForm.onsubmit=async e=>{e.preventDefault();loginStatus.textContent='';try{if(!S.supabase.url||!S.supabase.key){if(loginPassword.value!=='demo123')throw Error('Password demo salah. Password demo: demo123');cloud=false;await bootAfterLogin();return}sb=window.supabase.createClient(S.supabase.url,S.supabase.key);if(authMode==='signup'){let{error}=await sb.auth.signUp({email:loginEmail.value,password:loginPassword.value});if(error)throw error;loginStatus.textContent='Akun dibuat. Jika diminta, verifikasi email lalu login.';return}let{error}=await sb.auth.signInWithPassword({email:loginEmail.value,password:loginPassword.value});if(error)throw error;cloud=true;await bootAfterLogin()}catch(err){loginStatus.textContent=err.message;}}
+logoutBtn.onclick=async()=>{try{if(sb)await sb.auth.signOut()}catch(e){}cloud=false;app.classList.add('hidden');loginView.classList.remove('hidden');say('Anda sudah keluar.')};
+(async()=>{await connectFromStored();if(sb){const{data}=await sb.auth.getSession();if(data.session){cloud=true;await bootAfterLogin()}}render();})();
+</script>
+</body>
+</html>
